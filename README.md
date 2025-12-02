@@ -8,13 +8,13 @@
 Проєкт демонструє простий захищений REST API на Node.js + Express з in-memory даними (користувачі, документи, співробітники). Навчальна мета — реалізація аутентифікації, авторизації за ролями та логування запитів.
 
 Файли проєкту
-- [data.js](data.js) — in-memory дані (масиви `users`, `documents`, `employees`).
-- [server.js](server.js) — основний сервер, маршрути та middleware (див. також [`authMiddleware`](server.js), [`adminOnlyMiddleware`](server.js), [`loggingMiddleware`](server.js)).
-- [test-client.js](test-client.js) — Node.js скрипт для автоматичного тестування API.
+- [data.js](data.js) — масиви `users`, `documents`, `employees`
+- [server.js](server.js) — основний сервер, маршрути та middleware
+- [test-client.js](test-client.js) — скрипт для автоматичного тестування API.
 - [package.json](package.json) — маніфест проєкту.
 - [.gitignore](.gitignore) — ігнорування node_modules.
 - [README.md](README.md) — ця документація.
-- Скриншоти для демонстрації роботи знаходяться в папці images/.
+- [Скриншоти](./images)
 
 Швидкий старт
 1. Встановити залежності:
@@ -22,18 +22,14 @@
 
 2. Запустити сервер:
    node server.js
-   або (якщо додано скрипт start у package.json):
-   npm start
 
 3. Запустити тестовий клієнт у окремому терміналі (сервер має бути запущений):
    node test-client.js
-   або (якщо додано скрипт test у package.json):
-   npm test
 
 Аутентифікація та авторизація
 - Аутентифікація виконується простими заголовками HTTP: X-Login і X-Password.
 - Авторизація за ролями: лише користувач з role === 'admin' має доступ до конфіденційних ресурсів.
-- Реалізація — в [server.js](server.js) як [`authMiddleware`](server.js) і [`adminOnlyMiddleware`](server.js).
+- Реалізація — в [server.js](server.js)
 - Логування всіх запитів реалізовано в [`loggingMiddleware`](server.js).
 
 API ендпоінти
@@ -75,12 +71,3 @@ API ендпоінти
   - [test-client.js](test-client.js)
   - [package.json](package.json)
   - [.gitignore](.gitignore)
-
-Примітки для викладача / перевірки
-- У репозиторії мають бути мінімум 5 змістовних комітів (за етапами лабораторної).
-- Переконайтесь, що node_modules не комітиться (див. [.gitignore](.gitignore)).
-- У README має бути скріншоти роботи через Postman (папка images/).
-
-Контакти та додаткові матеріали
-- Документація Express: https://expressjs.com/
-- Код middleware і маршрути дивіться в [server.js](server.js): [`authMiddleware`](server.js), [`adminOnlyMiddleware`](server.js),
